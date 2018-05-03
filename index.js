@@ -16,8 +16,8 @@ const Koa = require('koa');
 const app = new Koa();
 const config = require('config');
 
-const handlers = require('./handlers/index');
-handlers(app, __dirname);
+const middleware = require('./middleware/index');
+middleware(app);
 
 require('./DB/index')(config);
 
