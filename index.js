@@ -9,8 +9,6 @@ require('dotenv').config();
 if (process.env.TRACE === "dev") {
     require('./libs/trace');
 }
-process.env.DIRNAME = __dirname;
-
 
 const Koa = require('koa');
 const app = new Koa();
@@ -19,7 +17,7 @@ const config = require('config');
 const middleware = require('./middleware/index');
 middleware(app);
 
-require('./DB/index')(config);
+require('./DB/index')();
 
 const router = require('./routers/index');
 
